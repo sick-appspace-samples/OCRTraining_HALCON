@@ -1,2 +1,1 @@
-SICK
-Sensorlntelligence
+SICKSensorlntelligence

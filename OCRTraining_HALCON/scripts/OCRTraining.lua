@@ -1,23 +1,3 @@
---[[----------------------------------------------------------------------------
-  Application Name:
-  OCRTraining_HALCON
-
-  Summary:
-  Example for OCR training within AppSpace using the HALCON API.
-
-  Description:
-  This App shows how to train an OCR handle based on a given training image and
-  label file which contains the identified characters of the training image.
-  The labels are sorted line wise (from left to right and from top to bottom).
-  The output of this sample is a trained OCR handle file in public AppData which
-  then can be used in the OCRReading_HALCON sample.
-
-  How to run:
-  To run this sample a device which has HALCON integrated is necessary.
-  Implementation:
-  This sample is written using HALCON 12.
-  
-------------------------------------------------------------------------------]]
 
 --Start of Function and Event Scope---------------------------------------------
 

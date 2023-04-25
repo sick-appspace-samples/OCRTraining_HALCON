@@ -1,7 +1,9 @@
 
 --Start of Function and Event Scope---------------------------------------------
 
---@trainOCR(trainingImage:Image, trainingLabels:table, trainedOCRFilename:string)
+---@param trainingImage Image
+---@param trainingLabels string[]
+---@param trainedOCRFilename string
 local function trainOCR(trainingImage, trainingLabels, trainedOCRFilename)
   local trainingFilename = "letters.trf"
   -- Creating Halcon handle

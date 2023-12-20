@@ -1,27 +1,29 @@
 
 --Start of Function and Event Scope---------------------------------------------
 
---@trainOCR(trainingImage:Image, trainingLabels:table, trainedOCRFilename:string)
+---@param trainingImage Image
+---@param trainingLabels string[]
+---@param trainedOCRFilename string
 local function trainOCR(trainingImage, trainingLabels, trainedOCRFilename)
   local trainingFilename = "letters.trf"
   -- Creating Halcon handle
   local hdevOCRTraining = Halcon.create()
   -- Loading OCRTraining.hdvp script into HALCON handle
   hdevOCRTraining:loadProcedure("resources/OCRTraining.hdvp")
-  
+
   -- Setting the iconic and control input parameters of the HALCON function OCRTraining.hdvp
   hdevOCRTraining:setImage("TrainingImage", trainingImage)
   hdevOCRTraining:setString("OCRTrainingFilename", trainingFilename)
   hdevOCRTraining:setString("OCRFilename", trainedOCRFilename)
   hdevOCRTraining:setStringArray("Labels", trainingLabels)
-  
+
   -- Executing the loaded function
   local _ = hdevOCRTraining:execute()
   File.del("public/" .. trainingFilename)
   print("Training finished, see output at public/" .. trainedOCRFilename)
 end
 
---Declaration of the 'main' function as an entry point for the event loop
+---Declaration of the 'main' function as an entry point for the event loop
 local function main()
   --Specifiying path for storing ocr handle
   local relativePath = "ocrhandle.ocm"
